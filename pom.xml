@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.ecm4u.alfresco</groupId>
+	<artifactId>ecm4u-alfrescofix8171-repo</artifactId>
+	<version>1.0.0</version>
+
+	<name>alfresco-repository-8171-fix-preview-on-update</name>
+
+    <description>addresses ecm4u #8171: Reimplement Transformation behavior to avoid ActiveMQ messaging/events subsystems</description>
+    <url>https://github.com/ecm4u/alfresco-repository-8171-fix-preview-on-update</url>
+
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License, Version 3</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.en.html</url>
+        </license>
+    </licenses>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<classifier>a1</classifier>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.alfresco</groupId>
+			<artifactId>alfresco-repository</artifactId>
+			<version>7.43</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<classifier>${classifier}</classifier>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

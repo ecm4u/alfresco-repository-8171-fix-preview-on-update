@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<beans>
+    <bean id="ecm4u-contentUpdateBehavior" class="org.alfresco.repo.policy.registration.ClassPolicyRegistration" parent="policyRegistration">   
+        <property name="policyName">
+            <value>{http://www.alfresco.org}onContentUpdate</value>
+        </property>  	   
+        <property name="className">
+            <value>{http://www.alfresco.org/model/content/1.0}content</value>
+        </property> 	   
+        <property name="behaviour">
+           	<bean class="org.alfresco.repo.policy.JavaBehaviour">
+           		<constructor-arg index="0">
+	           		<bean class="de.ecm4u.alfresco.content.behavior.NodeRefExistsBehaviorWrapprer">
+	           			<constructor-arg  index="0" ref="renditionService2"/>
+	           			<constructor-arg  index="1" ref="nodeService"/>
+	           		</bean>           		   
+           		</constructor-arg>
+           		<constructor-arg index="1" value="onContentUpdate"/>
+           		<constructor-arg index="2" value="TRANSACTION_COMMIT" />
+		   	</bean>        
+	    </property>
+	</bean>
+</beans>
